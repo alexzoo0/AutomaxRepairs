@@ -4,15 +4,25 @@ import OurShop from './componets/ourShop/ourShop.js';
 import { BrowserRouter, Route, Routes, } from 'react-router-dom'
 
 function App() {
+
+
   return (
-    <BrowserRouter>
-    {<Home />}
+    <BrowserRouter future={{
+      v7_relativeSplatPath: true,
+    }}>
       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route  path='/OurShop' element={<OurShop />} />
+        <Route path='/'>
+          <Route exact path='*' element={<Home />} />
+        </Route>
+        <Route path='OurShop'>
+          <Route path='*' element={<OurShop />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
+
+
 }
+
 
 export default App;
